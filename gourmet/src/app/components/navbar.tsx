@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="bg-white flex flex-wrap items-center justify-between p-4">
       <div className="flex items-center">
-        <img src={Logo.src} className="mx-3"></img>
+        <img src={Logo.src} className="ml-10 mr-4"></img>
         <img src={Gourmet.src}></img>
       </div>
 
@@ -18,14 +18,14 @@ const Navbar = () => {
 
 
 <form action="" className="w-screen  max-w-2xl">
-      <div className="relative flex items-center text-gray-400 focus-within:text-gray-700">
+      <div className="relative flex items-center text-gray-400  mt-4 rounded-2xl focus-within:text-gray-500">
       <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5 absolute ml-3 pointer-events-none"
+              className="w-8 h-auto absolute ml-3  pointer-events-none"
             >
               <path
                 strokeLinecap="round"
@@ -36,12 +36,12 @@ const Navbar = () => {
 
         
         <input
-          type="text"
+          type="text" 
           name="search"
-          placeholder="Search talk"
+          placeholder="Hey, looking for something?"
           autoComplete="off"
-          aria-label="Search talk"
-          className="w-full pr-3 pl-10 py-3 font-semibold bg-gray-200 placeholder-gray-500 text-gray-700  rounded-2xl border-none "
+          aria-label="Hey, looking for something?"
+          className="w-full h-16 pr-3 pl-12 py-4 font-normal bg-gray-200 placeholder-gray-500 text-gray-700  rounded-2xl border-none text-2xl "
         />
       </div>
     </form>
