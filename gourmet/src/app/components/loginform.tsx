@@ -1,38 +1,45 @@
-'use client';
-import React,{useEffect, useState} from "react";
-
+"use client";
+import React, { useEffect, useState } from "react";
 
 import Logo from "../assets/logo.svg";
 import Link from "next/link";
+import axios from "axios";
+
 
 export default function Login() {
-
-  const [email, setemail] = useState("");
+  const [name, setname] = useState("");
   const [password, setpassword] = useState("");
   const [error, seterror] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+const base_url = process.env.BASE_URL;
 
+const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if(!email || !password){
-      seterror("All feilds are required")
-      return
+    const userData = {
+      username: name,
+      password: password
+    };
+    axios.post('https://01e6-123-63-2-2.ngrok-free.app/auth/login', userData).then((response) => {
+      console.log(response.status, response.data.token);
+      localStorage.setItem('token' , response.data.token);
+    }).catch(function(error) {
+      if(error.response.data == "USER_NOT_FOUND"){
 
-    }
-  
-    Response.redirect("/context/dashboard")
-    
-    console.log("email ",email,"password",password)
-
-  };
-  useEffect(() => {
-    seterror('');
-  },[email,password])
-
-  
-
-
-
+        seterror("User not exist");
+      }
+      else if(error.response.data == "ERR_EMPTY_FIELD"){
+        seterror("All fields required");
+      }
+      else if(error.response.data == "ERR_INVALID_PASSWORD")
+      {
+        seterror("Invalid Password");
+      }
+      else {
+        seterror("error")
+        console.log(error.response.data);
+      }
+  });
+}
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-gray-100">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
@@ -49,7 +56,8 @@ export default function Login() {
               Name
             </label>
             <input
-              type="text" onChange={(e)=> setemail(e.target.value)}
+              type="text"
+              onChange={(e) => setname(e.target.value)}
               className="block w-full px-4 py-2 mt-2 text-green-500 bg-white border rounded-md focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -58,23 +66,28 @@ export default function Login() {
               Password
             </label>
             <input
-              type="password" onChange={(e) => setpassword(e.target.value)}
+              type="password"
+              onChange={(e) => setpassword(e.target.value)}
               className="block w-full px-4 py-2 mt-2 text-green-500 bg-white border rounded-md focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
 
-          {error && (<div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
-            Error Message
-          </div>)}
+          {error && (
+            <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
+             {error}
+            </div>
+          )}
 
-          
           <div className="mt-2">
             <Link href="#" className="text-xs text-green-600 hover:underline">
               Forget Password?
             </Link>
           </div>
           <div className="mt-4">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-green-500 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">
+            <button
+              onClick={handleSubmit}
+              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-green-500 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600"
+            >
               Login
             </button>
           </div>

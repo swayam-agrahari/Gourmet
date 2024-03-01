@@ -3,6 +3,7 @@ import React,{useState,useEffect} from "react";
 import Logo from "../assets/logo.svg";
 import Link from "next/link";
 import axios from "axios";
+import router from "next/router";
 
 export default function Signup() {
     const [name, setname] = useState("");
@@ -15,23 +16,21 @@ export default function Signup() {
       e.preventDefault();
       try {
         const response = await axios.post(
-          'https://1551-123-63-2-2.ngrok-free.app/auth/signup',
+          'https://fc5e-123-63-2-2.ngrok-free.app/auth/signup',
           JSON.stringify({username:name,email:email,password:password}),
         {
           headers:{'Content-Type':'application/json'},
         }
         );
-        console.log(response.data)
+        console.log("signup success",response.data)
+        router.push("/")
         setname('');
         setpassword('');
         setcon_pass('');
         setemail('');
         
-      } catch (error) {
-        axios.get('https://1551-123-63-2-2.ngrok-free.app/auth/signup')
-  .catch(function (error) {
-    console.log(error)
-  });
+      } catch (error:any) {
+        console.log("ERROR",error)
       }
       if(!name || !email || !password || !con_pass){
         seterror("All feilds are necessary");
