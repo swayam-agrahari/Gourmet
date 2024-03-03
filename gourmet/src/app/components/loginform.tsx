@@ -19,7 +19,7 @@ const handleSubmit = (e: React.FormEvent) => {
       username: name,
       password: password
     };
-    axios.post('https://01e6-123-63-2-2.ngrok-free.app/auth/login', userData).then((response) => {
+    axios.post('https://5566-123-63-2-2.ngrok-free.app/auth/login', userData).then((response) => {
       console.log(response.status, response.data.token);
       localStorage.setItem('token' , response.data.token);
     }).catch(function(error) {

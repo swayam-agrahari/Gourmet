@@ -7,7 +7,7 @@ import router from "next/router";
 
 export default function Signup() {
     const [name, setname] = useState("");
-    const [password, setpassword] = useState("");
+    const [password, setpassword] = useState(""); 
     const [con_pass,setcon_pass] = useState("");
     const [email, setemail] = useState("");
     const [error, seterror] = useState("");

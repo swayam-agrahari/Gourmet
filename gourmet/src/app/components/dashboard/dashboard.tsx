@@ -1,9 +1,10 @@
 import React from 'react'
 import Navbar from '../navbar'
-import { InfiniteMovingCardsDemo } from '@/app/context/card/test-page'
+import { InfiniteMovingCardsDemo } from '@/app/pages/card/test-page'
 
 import Category from '../ui/category'
-import Favourite from '@/app/context/favourite/Favourite'
+
+import { CarouselSpacing } from '@/app/pages/favourite/testpage'
 
 const Dashboard = () => {
   return (
@@ -11,7 +12,7 @@ const Dashboard = () => {
 <Navbar/>
 <InfiniteMovingCardsDemo/>
 <Category/>
-<Favourite/>
+<CarouselSpacing/>
     </div>
   )
 }
