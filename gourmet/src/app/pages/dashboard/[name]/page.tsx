@@ -12,7 +12,7 @@ export default function Categories({params}:{
   return (
     <div>
     <Subcategory id={params.id} name={params.name} image={params.image}/>
-      {params.id}
+  
     </div>
   )
 }
