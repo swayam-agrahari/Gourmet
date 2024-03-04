@@ -8,7 +8,7 @@ const Category = () => {
   const categories = [
     {id:1, name: "Chocolates", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
     {id:2, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
-    {id:3, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
+    {id:3, name: "Staples", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
     {id:4, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
     {id:5, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
     {id:6, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
@@ -29,7 +29,8 @@ const Category = () => {
           <div className="mb-4 cursor-pointer" key={category.name}>
             {/* Use the Link component from Next.js for dynamic routing */}
             <Link
-              href={`/pages/dashboard/${encodeURIComponent(category.id)}`}
+              href={{pathname:`/pages/dashboard/${encodeURIComponent(category.name).toLowerCase()}`
+            }}
             >
               
                 <img
