@@ -29,7 +29,7 @@ const Category = () => {
           <div className="mb-4 cursor-pointer" key={category.name}>
             {/* Use the Link component from Next.js for dynamic routing */}
             <Link
-              href={{pathname:`/pages/dashboard/${encodeURIComponent(category.name).toLowerCase()}`
+              href={{pathname:`/context/dashboard/${encodeURIComponent(category.name).toLowerCase()}`
             }}
             >
               

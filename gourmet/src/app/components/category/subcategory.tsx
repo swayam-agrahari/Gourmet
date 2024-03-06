@@ -1,9 +1,10 @@
 "use client"
 import React from "react";
 import Navbar from "../navbar";
-import Product from "../../pages/dashboard/[name]/[product]/page";
+import Product from "../../context/dashboard/[name]/[product]/page";
 import Link from "next/link";
 import category from "./category";
+import Products from "./products";
 type propType = {
     id: String;
     name: String;
@@ -11,9 +12,23 @@ type propType = {
 };
 
 const Subcategory = (prop: propType) => {
+  const subcategories = [
+    {id:1,name:"Staples"},
+    {id:2,name:"Chocolates"},
+    {id:3,name:"Personal Care"},
+    {id:4,name:"Frozen & Instant Food"},
+    {id:5,name:"Biscuits & Cakes"},
+    {id:6,name:"Snacks"},
+    {id:7,name:"Dairy & Beverages"},
+    
+  
+  
+  ]
+
+
   const products = [
 {id:1, name:"Dairy Milk",url:"https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",brand:"cadbury"},
-{id:2, name:"Kitkat",url:"https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",brand:"cadbury"},
+{id:2, name:"Kitkat",url:"https://images.unsplash.com/photo-1651950537598-373e4358d320?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MjV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",brand:"cadbury"},
 {id:3, name:"5 Star",url:"https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",brand:"cadbury"},
 {id:4, name:"Ferrero Rocher",url:"https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",brand:"cadbury"},
 {id:5, name:"Snickers",url:"https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",brand:"cadbury"},
@@ -32,73 +47,38 @@ const Subcategory = (prop: propType) => {
             <Navbar /><div className="flex  ">
 
 
-      <div className="">
 
-        <aside className="w-64 ml-4" aria-label="Sidebar">
-          <div className=" py-4 mt-10 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800 shadow border border-gray-100 ">
-            <ul className="space-y-">
 
-              <li>
-                <Link href={{
-                  pathname: `/pages/dashboard/${encodeURIComponent(category.name).toLowerCase()}/${encodeURIComponent(category.name)}`
-                }} className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-400 dark:hover:bg-gray-700 hover:rounded-xl">
-                  <img src="https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fatta_icon_1_new.png&w=96&q=75" />
-                  <span className="flex-1 ml-3 whitespace-nowrap text-2xl">Staples</span>
 
-                </Link>
-              </li>
+          <div
+  className="relative flex h-[80vh] w-full max-w-[20rem] mt-10 ml-12 flex-col rounded-xl bg-white bg-clip-border border border-gray-100 py-4 text-gray-700 shadow-md shadow-blue-gray-900/5">
+  <div className="-center text-center ">
+    <h5 className="block font-sans text-3xl antialiased font-medium leading-snug tracking-normal text-blue-gray-900 ">
+     {prop.name}
+    </h5>
+  </div>
+  {
+subcategories.map((subcategory)=>
+(
 
-              <li>
-                <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-400 hover:rounded-xl dark:hover:bg-gray-700">
-                  <img src="https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fatta_icon_1_new.png&w=96&q=75" />
-                  <span className="flex-1 ml-3 whitespace-nowrap text-2xl">Staples</span>
-
-                </a>
-              </li>
-
-              <li>
-                <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-400 hover:rounded-xl dark:hover:bg-gray-700">
-                  <img src="https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fatta_icon_1_new.png&w=96&q=75" />
-                  <span className="flex-1 ml-3 whitespace-nowrap text-2xl">Staples</span>
-
-                </a>
-              </li>
-
-              <li>
-                <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-400 hover:rounded-xl dark:hover:bg-gray-700">
-                  <img src="https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fatta_icon_1_new.png&w=96&q=75" />
-                  <span className="flex-1 ml-3 whitespace-nowrap text-2xl">Staples</span>
-
-                </a>
-              </li>
-
-              <li>
-                <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-400 hover:rounded-xl dark:hover:bg-gray-700">
-                  <img src="https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fatta_icon_1_new.png&w=96&q=75" />
-                  <span className="flex-1 ml-3 whitespace-nowrap text-2xl">Staples</span>
-
-                </a>
-              </li>
-
-              <li>
-                <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-400 hover:rounded-xl dark:hover:bg-gray-700">
-                  <img src="https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fatta_icon_1_new.png&w=96&q=75" />
-                  <span className="flex-1 ml-3 whitespace-nowrap text-2xl">Staples</span>
-
-                </a>
-              </li>
-              <li>
-                <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-400 hover:rounded-xl dark:hover:bg-gray-700">
-                  <img src="https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fatta_icon_1_new.png&w=96&q=75" />
-                  <span className="flex-1 ml-3 whitespace-nowrap text-2xl">Staples</span>
-
-                </a>
-              </li>
-
-            </ul>
-          </div>
-        </aside>
+  <nav className="flex min-w-[240px] flex-col  py-2 font-sans text-base font-normal text-blue-gray-700 ">
+   <div role="button" key={subcategory.id}
+      className="flex items-center w-full p-2 duration-300 hover:scale-x-105   leading-tight transition-all rounded-lg outline-none text-start hover:bg-sky-200 hover:bg-opacity-80 hover:text-blue-gray-900 hover:rounded-[8px]  text-xl ">   
+      <div className="grid mr-4 place-items-center w-16  ">
+        <img src="https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fatta_icon_1_new.png&w=256&q=75"></img>
       </div>
+      {subcategory.name}
+    </div> 
+
+
+
+  </nav>
+  ))}
+</div>
+
+
+
+
       <div>  
          
 
@@ -109,7 +89,7 @@ const Subcategory = (prop: propType) => {
        
 
           <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" key={product.id}>
-            <a href="#">
+            <a href={`/pages/dashboard/chocolates/${product.name}`}>
               <img src={product.url} alt="Product" className="h-80 w-72 object-cover rounded-t-xl" />
               <div className="px-4 py-3 w-72">
                 <span className="text-gray-400 mr-3 uppercase text-xs">Brand</span>
