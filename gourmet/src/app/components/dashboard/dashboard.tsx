@@ -1,10 +1,10 @@
 import React from 'react'
 import Navbar from '../navbar'
-import { InfiniteMovingCardsDemo } from '@/app/pages/card/test-page'
+import { InfiniteMovingCardsDemo } from '@/app/context/card/test-page'
 
 import Category from '../category/category'
 
-import { CarouselSpacing } from '@/app/pages/favourite/testpage'
+import { CarouselSpacing } from '@/app/context/favourite/testpage'
 
 const Dashboard = () => {
   return (
