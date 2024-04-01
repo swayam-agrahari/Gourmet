@@ -1,4 +1,4 @@
-import Subcategory from '@/app/components/category/subcategory';
+import Subcategory from '@/app/context/category/subcategory';
 import React from 'react'
 
 export default function Categories({params}:{

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Cookies from 'js-cookie';
 
 import Logo from "../assets/logo.svg";
 import Link from "next/link";
@@ -19,9 +20,11 @@ const handleSubmit = (e: React.FormEvent) => {
       username: name,
       password: password
     };
-    axios.post('https://5566-123-63-2-2.ngrok-free.app/auth/login', userData).then((response) => {
+  axios.post(`${base_url}/auth/login`, userData).then((response) => {
       console.log(response.status, response.data.token);
-      localStorage.setItem('token' , response.data.token);
+      Cookies.set('token', response.data.token, { expires: 7, secure: true });
+
+
     }).catch(function(error) {
       if(error.response.data == "USER_NOT_FOUND"){
 

@@ -8,7 +8,7 @@ interface Product {
   price:string;
   category:string;
   description:string;
-  // Add other properties as needed
+  
 }
 
 const Products: React.FC = () => {
@@ -28,7 +28,7 @@ const Products: React.FC = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures that this effect runs only once, similar to componentDidMount
+  }, []); 
 
   return (
     <div>

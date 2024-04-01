@@ -12,11 +12,13 @@ export default function Signup() {
     const [email, setemail] = useState("");
     const [error, seterror] = useState("");
 
+    const base_url = process.env.BASE_URL;
+
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       try {
         const response = await axios.post(
-          'https://fc5e-123-63-2-2.ngrok-free.app/auth/signup',
+          'https://5f4d-2409-40f3-1006-2eee-54cd-2a0a-fa15-131.ngrok-free.app/auth/signup',
           JSON.stringify({username:name,email:email,password:password}),
         {
           headers:{'Content-Type':'application/json'},
