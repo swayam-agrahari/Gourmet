@@ -6,13 +6,13 @@ import { IoChevronDownOutline } from "react-icons/io5";
 const Category = () => {
   // Define an array to store category data (replace with your actual data)
   const categories = [
-    {id:1, name: "Chocolates", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
-    {id:2, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
-    {id:3, name: "Staples", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
-    {id:4, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
-    {id:5, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
-    {id:6, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
-    {id:7, name: "Health Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
+    {id:1, name: "Staples", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
+    {id:2, name: "Chocolates", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
+    {id:3, name: "Personal Care", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
+    {id:4, name: "Frozen & Instant Food", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
+    {id:5, name: "Biscuits & Cake", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
+    {id:6, name: "Snacks", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
+    {id:7, name: "Dairy & Beverages", image: "https://www.itcstore.in/_next/image?url=https%3A%2F%2Fadmin.itcstore.in%2Fmedia%2Fcatalog%2Fcategory%2Fdesert_1_1__1.png&w=1920&q=75" },
     
     // Add more categories as needed
   ];
@@ -28,7 +28,7 @@ const Category = () => {
         {categories.map((category) => (
           <div className="mb-4 cursor-pointer" key={category.id}>
             <Link
-              href={{pathname:`/category/${encodeURIComponent(category.name).toLowerCase()}`
+              href={{pathname:`/category/${encodeURIComponent(category.name)}`
             }}
             >
               
